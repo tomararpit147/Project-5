@@ -36,16 +36,26 @@ print("Loading data...")
 import os
 import gdown
 
+import os
+import requests
+
 if not os.path.exists('india_housing_prices.csv'):
-    import requests
+    print("Downloading dataset...")
     file_id = "1DenykRQDGQLUUKUMJbZSJ2cbHXI1jvgs"
     url = f"https://drive.google.com/uc?export=download&id={file_id}"
     session = requests.Session()
     response = session.get(url, stream=True)
+    # Handle Google's virus scan warning for large files
+    for key, value in response.cookies.items():
+        if key.startswith('download_warning'):
+            url = f"{url}&confirm={value}"
+            response = session.get(url, stream=True)
+            break
     with open('india_housing_prices.csv', 'wb') as f:
         for chunk in response.iter_content(chunk_size=32768):
             if chunk:
                 f.write(chunk)
+    print("Download complete!")
 
 df = pd.read_csv('india_housing_prices.csv')
 df.drop_duplicates(inplace=True)
