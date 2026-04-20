@@ -2,6 +2,11 @@
 Real Estate Investment Advisor — Streamlit App
 Run: streamlit run app.py
 """
+
+import os
+if not os.path.exists('models/regressor.pkl'):
+    import train_models
+    
 import streamlit as st 
 import pandas as pd
 import numpy as np 

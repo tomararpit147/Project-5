@@ -38,7 +38,7 @@ import gdown
 
 if not os.path.exists('india_housing_prices.csv'):
     gdown.download(
-        "https://drive.google.com/file/d/1DenykRQDGQLUUKUMJbZSJ2cbHXI1jvgs/view?usp=drive_link",
+        "https://drive.google.com/file/d/1DenykRQDGQLUUKUMJbZSJ2cbHXI1jvgs",
         "india_housing_prices.csv",
         quiet=False
     )
