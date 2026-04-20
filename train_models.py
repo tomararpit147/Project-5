@@ -37,12 +37,15 @@ import os
 import gdown
 
 if not os.path.exists('india_housing_prices.csv'):
-    gdown.download(
-        "https://drive.google.com/uc?id=1DenykRQDGQLUUKUMJbZSJ2cbHXI1jvgs",
-        "india_housing_prices.csv",
-        quiet=False,
-        fuzzy=True
-    )
+    import requests
+    file_id = "1DenykRQDGQLUUKUMJbZSJ2cbHXI1jvgs"
+    url = f"https://drive.google.com/uc?export=download&id={file_id}"
+    session = requests.Session()
+    response = session.get(url, stream=True)
+    with open('india_housing_prices.csv', 'wb') as f:
+        for chunk in response.iter_content(chunk_size=32768):
+            if chunk:
+                f.write(chunk)
 
 df = pd.read_csv('india_housing_prices.csv')
 df.drop_duplicates(inplace=True)
