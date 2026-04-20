@@ -107,8 +107,8 @@ print(f"Train: {X_tr.shape}, Test: {X_te.shape}")
 print("\n=== CLASSIFICATION ===")
 cls_models = {
     'Logistic Regression': (LogisticRegression(max_iter=500, random_state=42), True),
-    'Random Forest':       (RandomForestClassifier(n_estimators=100, random_state=42, n_jobs=-1), False),
-    'Gradient Boosting':   (GradientBoostingClassifier(n_estimators=100, random_state=42), False),
+    'Random Forest':       (RandomForestClassifier(n_estimators=10, max_depth=10, random_state=42, n_jobs=-1), False),
+    'Gradient Boosting':   (GradientBoostingClassifier(n_estimators=50, max_depth=4, random_state=42), False),
 }
 cls_results = {}
 
