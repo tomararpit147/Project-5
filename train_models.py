@@ -34,7 +34,6 @@ os.makedirs('models', exist_ok=True)
 # ── 1. LOAD & PREPROCESS ─────────────────────────────────────────────────────
 print("Loading data...")
 import os
-import gdown
 
 import os
 import requests
@@ -161,8 +160,8 @@ with open('models/best_classifier_name.txt','w') as f:
 print("\n=== REGRESSION ===")
 reg_models = {
     'Ridge':             (Ridge(alpha=1.0), True),
-    'Random Forest':     (RandomForestRegressor(n_estimators=100, random_state=42, n_jobs=-1), False),
-    'Gradient Boosting': (GradientBoostingRegressor(n_estimators=100, random_state=42), False),
+    'Random Forest':     (RandomForestRegressor(n_estimators=10, max_depth=10, random_state=42, n_jobs=-1), False),
+    'Gradient Boosting': (GradientBoostingRegressor(n_estimators=50, max_depth=4, random_state=42), False),
 }
 reg_results = {}
 
