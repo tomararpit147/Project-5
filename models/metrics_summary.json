@@ -1,0 +1,40 @@
+{
+  "best_classifier": "Random Forest",
+  "cls_accuracy": 1.0,
+  "cls_f1": 1.0,
+  "best_regressor": "Random Forest",
+  "reg_rmse": 0.33,
+  "reg_mae": 0.2,
+  "reg_r2": 1.0,
+  "all_classifiers": {
+    "Logistic Regression": {
+      "Accuracy": 0.8538,
+      "F1": 0.774
+    },
+    "Random Forest": {
+      "Accuracy": 1.0,
+      "F1": 1.0
+    },
+    "Gradient Boosting": {
+      "Accuracy": 1.0,
+      "F1": 1.0
+    }
+  },
+  "all_regressors": {
+    "Ridge": {
+      "RMSE": 22.09,
+      "MAE": 17.29,
+      "R2": 0.9888
+    },
+    "Random Forest": {
+      "RMSE": 0.33,
+      "MAE": 0.2,
+      "R2": 1.0
+    },
+    "Gradient Boosting": {
+      "RMSE": 10.7,
+      "MAE": 7.41,
+      "R2": 0.9974
+    }
+  }
+}
