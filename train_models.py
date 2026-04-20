@@ -38,9 +38,10 @@ import gdown
 
 if not os.path.exists('india_housing_prices.csv'):
     gdown.download(
-        "https://drive.google.com/file/d/1DenykRQDGQLUUKUMJbZSJ2cbHXI1jvgs",
+        "https://drive.google.com/uc?id=1DenykRQDGQLUUKUMJbZSJ2cbHXI1jvgs",
         "india_housing_prices.csv",
-        quiet=False
+        quiet=False,
+        fuzzy=True
     )
 
 df = pd.read_csv('india_housing_prices.csv')
