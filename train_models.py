@@ -33,6 +33,16 @@ os.makedirs('models', exist_ok=True)
 
 # ── 1. LOAD & PREPROCESS ─────────────────────────────────────────────────────
 print("Loading data...")
+import os
+import gdown
+
+if not os.path.exists('india_housing_prices.csv'):
+    gdown.download(
+        "https://drive.google.com/file/d/1DenykRQDGQLUUKUMJbZSJ2cbHXI1jvgs/view?usp=drive_link",
+        "india_housing_prices.csv",
+        quiet=False
+    )
+
 df = pd.read_csv('india_housing_prices.csv')
 df.drop_duplicates(inplace=True)
 print(f"Shape: {df.shape}")
